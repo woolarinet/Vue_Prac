@@ -10,40 +10,43 @@
 <body>
 
     <div id = "app">
-     <div>{{ msgA }}</div>
-     <div>{{ msgB }}</div>
-     <button v-on:click="changeMessage">Change!</button>
+     <div ref="msg">{{ msg }}</div>
+     <div ref="div"></div>
     </div>
 
     <script>
       const vm = new Vue({
         el: '#app',
         data: {
-          msgA: 'Message A.',
-          msgB: ''
+          msg: 'Sun'
         },
-        methods: {
-          changeMessage(){
-            this.msgA = 'Cahnged message A!'
-            this.msgB = 'Changed message B!'
-          }
-        },
-        computed: {},
-        watch: {
-          msgA(value){
-            console.log(value)
-          }
+        beforeCreate() {
+          console.log('beforeCreate!', this.msg)
         },
         created(){
-
+          console.log('created!', this.msg)
         },
+        beforeMount(){
+          console.log('beforeMount!', this.$refs.div)
+        },
+
         mounted(){
+          console.log('mounted!', this.$refs.div)
           
+        },
+        beforeUpdate(){
+          console.log('beforeUpdate', this.$refs.msg.innerText)
+        },
+        updated(){
+          console.log('updated', this.$refs.msg.innerText)
+        },
+        beforeDestroy(){
+          console.log('beforeDestroy!')
+        },
+        destroyed(){
+         console.log('destroyed') 
         }
       })
-
-      console.log(vm)
-
     </script>
 
 </body>
