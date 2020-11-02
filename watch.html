@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vuetest</title>
+    <script src = "https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <div>{{ reversedMsg }}</div>
+        <div>{{ msg }}</div>
+    </div>
+
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+               msg: 'SUNHO MUSIC'
+            },
+            computed: {
+                reversedMsg: {
+                    get(){
+                        return this.msg.split('').reverse().join('')  
+                    },
+                    set(v){
+                        this.msg = v
+                    }
+                }
+            },
+            //특정 값의 변화를 감시
+            watch:{
+                msg(newMsg){
+                    console.log('New data: ' + newMsg)
+                },
+                reversedMsg(newMsg){
+                    console.log('New reversedMsg: ' + newMsg)
+                }
+            }
+        })
+    </script>
+
+
+</body>
+</html>
