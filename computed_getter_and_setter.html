@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vuetest</title>
+    <script src = "https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <div>{{ reversedMsg }}</div>
+    </div>
+
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+               msg: 'SUNHO MUSIC'
+            },
+            computed: {
+                reversedMsg: {
+                    //getter는 연산값 or 어떤 값을 조회할 때
+                    get: function(){
+                        return this.msg.split('').reverse().join('') 
+                    },
+                    //이렇게 생략가능
+                    //setter는 외부에서 내부의 데이터의 값에 액세스할 때
+                    set(value){
+                        this.msg = value
+                    }
+                    //둘다 적게 쓰는게 효율적.
+                    
+                }
+            }
+        })
+    </script>
+
+
+</body>
+</html>
