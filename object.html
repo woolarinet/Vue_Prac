@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vuetest</title>
+    <script src = "https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            transition: 1s;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        .box--red{
+            background-color: red;
+        }
+        .box--blue{
+            width: 400px;
+            background-color: blue;
+        }
+        .box--gray{
+            background-color: gray;
+        }
+        .box--rainbow{
+            background-color: blanchedalmond;
+        }
+    </style>
+
+    <div id="app">
+        <button @click = "pushTodo">Push</button>
+        <ul class = "todos">
+            <li v-for = "(item, index) in todos"
+                :key = "index">
+                {{ item.title }}
+            </li>
+        </ul>
+        <!--객체는 항상 키를 갖고있기 때문에 index는 세번째로온다.-->
+        <ul class = "heropy">
+            <li v-for = "(value, key, index) in heropy"
+                :key = "index">
+                    {{ value }}
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+              todos:[
+                { title: '슈러그' },
+                { title: '사레레' },
+                { title: '벤치' }
+              ],
+
+              heropy:{
+                name: 'SUNHO',
+                age: 26
+              },
+
+            },
+            
+            methods:{
+                pushTodo(){
+                    //this.todos[3] = { title: '유산소' }
+                    this.todos.push({ title: '유산소' })
+                    this.heropy = Object.assign({}, this.heropy, {
+                        homepage: 'shmc.com'
+                    })
+                }
+            }
+            
+        })
+    </script>
+
+
+</body>
+</html>
