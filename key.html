@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vuetest</title>
+    <script src = "https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id = "app">
+        <input type = "text" :value = "message">
+        <!--단방향임-->
+
+        <input type = "text" v-model = "message">
+        <!--양방향-->
+        <div>{{ message }}</div>
+        <!--v-model은 한글은 한글자씩 밀려서 나옴-->
+
+        <input type = "text" @input = "bindMessage" :value = "message">
+        <!--하지만 여기다 직접 로직을 입력하지 X 그래서 밑에 메소드 선언-->
+    </div>
+
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                message: 'Hello~'
+            },
+            methods:{
+                bindMessage(event){
+                   this.message = event.target.value
+                }
+            }
+        })
+    </script>
+
+
+</body>
+</html>
