@@ -1,4 +1,4 @@
-#Single Page Application
+# Single Page Application
   대부분 사이트는 ex.com 이라는 홈페이지에서 클라이언트가 메인페이지를 요청할 때 서버는 index.html를 전송.
   마찬가지로 다른 페이지를 요청하면 서버가 그 페이지에 맞는 html 페이지를 전송.
   
