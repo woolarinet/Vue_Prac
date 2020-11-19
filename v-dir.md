@@ -47,5 +47,10 @@ Vue.component('my-comp',{
 </script>
 ```  
 의 형태로 작성. 슬롯의 속성인 message가 템플릿 내부에 담게 된다.
-
- 
+# v-model  
+양방향 바인딩을 위한 디렉티브  
+```
+<input type = "checkbox"
+        v-model = "todo.done">
+```  
+의 형태의 양방향 바인딩
