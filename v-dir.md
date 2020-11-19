@@ -46,7 +46,12 @@ Vue.component('my-comp',{
         })
 </script>
 ```  
-의 형태로 작성. 슬롯의 속성인 message가 템플릿 내부에 담게 된다.
+의 형태로 작성. 슬롯의 속성인 message가 템플릿 내부에 담게 된다.  
+# v-once  
+한번만 렌더링  
+```
+<div v-once>{{ msg }}</div>
+```  
 # v-model  
 양방향 바인딩을 위한 디렉티브  
 ```
