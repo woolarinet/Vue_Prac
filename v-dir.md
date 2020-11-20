@@ -55,7 +55,28 @@ Vue.component('my-comp',{
 # v-model  
 양방향 바인딩을 위한 디렉티브  
 ```
-<input type = "checkbox"
-        v-model = "todo.done">
+<input type = "text" v-model = "message">
+<div>{{ message }}</div>
+``` 
+의 형태. 실시간으로 바뀌는 것이 아닌, 모두 입력 후 바뀌길 원한다면  
+```
+<input type = "text" v-model.lazy = "message">
+```
+문자 맨 앞, 혹은 뒤의 공백을 자동으로 없애주는 trim
+```
+<input type = "text" v-model.trim = "message">
+```
+입력 값을 자동으로 숫자로 바꿔주는 number
+```
+<input type = "text" v-model.number = "message">
 ```  
-의 형태의 양방향 바인딩
+# v-if, v-show  
+조건부 렌더링 디렉티브. 
+둘다 같은 동작이지만, v-if 는 토글 비용이 높고, v-show는 초기 렌더링 비용이 높다.  
+자주 바꾸길 원하면 v-show, 런타임 시 조건이 크게 바뀌지 않는다면 v-if를 쓰자!  
+```
+<div v-if = "show"
+     class = "box"></div>     (v-if)
+<div v-show = "show"
+     class = "box"></div>     (v-show)
+```
